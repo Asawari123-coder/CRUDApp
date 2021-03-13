@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+  h1= title
+  a(href="/products/create") Create Product
+  br 
+  br
+  if message.length
+    .alert.alert-danger= message
+  else
+    br 
+    br 
+    table.table.table-hover
+      thead
+        tr
+          th PRODUCT NAME
+          th PRICE
+          th
+          th
+          th
+      tbody
+        each item in items
+          tr
+            td= item.iname
+            td= item.iprice
+            td
+              a.text-success(href="/products/details/"+item._id) Details
+            td
+              a.text-warning(href="/products/edit/"+item._id) Edit
+            td
+              a.text-danger(href="/products/delete/"+item._id) Delete

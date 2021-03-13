@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+    h1= title
+    a.row(href="/products") Back to Products
+    if message.length
+        div.alert.alert-info= message
+    else
+        .row
+            .col-sm-offset-3.col-sm-6
+                form(method="post")
+                    fieldset
+                        legend.text-center Add Product Information
+                    .form-group
+                        label(for='iname') Product Name
+                        input#iname.form-control(type="text", placeholder="Name", name="iname")
+                    .form-group
+                        label(for='iprice') Price of Product
+                        input#iprice.form-control(type="text", placeholder="Price", name="iprice")
+                    .row
+                        .col-sm-6
+                            button.btn.btn-block.btn-primary(type='submit') Save Product
+                        .col-sm-6
+                            button.btn.btn-block.btn-default(type='reset') Reset

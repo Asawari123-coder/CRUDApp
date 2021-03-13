@@ -1,0 +1,35 @@
+extends ../layout
+
+block content
+    h1= title
+    .text-center
+        h4 Selected Product Details
+        br
+        br
+        if message.length
+            div.alert.alert-danger= message
+        else
+            .row
+                .col-sm-offset-4.col-sm-4
+                    .card.hovercard
+                        .cardheader
+                        .avatar
+                            img(alt='' src='https://cdn4.iconfinder.com/data/icons/forum-buttons-and-community-signs-1/794/profile-3-512.png')
+                        .info
+                            .title
+                                h2.text-info= item.iname
+                            .desc= item.iprice
+                            .desc Curious developer
+                            .desc Tech geek
+                        .bottom
+                            a.btn.btn-primary.btn-twitter.btn-sm(href='https://twitter.com/webmaniac')
+                                i.fa.fa-twitter
+                            a.btn.btn-danger.btn-sm(rel='publisher' href='https://plus.google.com/+ahmshahnuralam')
+                                i.fa.fa-google-plus
+                            a.btn.btn-primary.btn-sm(rel='publisher' href='https://plus.google.com/shahnuralam')
+                                i.fa.fa-facebook
+                            a.btn.btn-warning.btn-sm(rel='publisher' href='https://plus.google.com/shahnuralam')
+                                i.fa.fa-behance
+            p
+                a(href="/products/edit/"+item._id) Edit | 
+                a(href="/products") Back to Products
